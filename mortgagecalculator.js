@@ -57,7 +57,7 @@ document.querySelector('#calculate').addEventListener('click',
 function() {
 let loanAmount = Number(document.querySelector('#loanAmount').value);
 let  years = Number(document.querySelector('#years').value);
-let interest = Number(document.querySelector('#interest').value);
+let interest = 1 + (Number(document.querySelector('#interest').value)/100);
 let payment = 0; 
 console.log(loanAmount, years, interest, payment, typeof (loanAmount, years, interest, payment));
 
