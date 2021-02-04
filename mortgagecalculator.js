@@ -1,6 +1,9 @@
 let loanAmount = Number(document.querySelector('#loanAmount').value);
+console.log(loanAmount, typeof(loanAmount));
 const  years = Number(document.querySelector('#years').value);
+console.log(years, typeof(years));
 const interest = Number(document.querySelector('#interest').value);
+console.log(interest, typeof(interest));
 let payment = 0; 
 
 const calculateDebtLeft = function (loanAmount, years, interest, payment) 
