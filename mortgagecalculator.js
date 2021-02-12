@@ -1,10 +1,6 @@
-let loanAmount = Number(document.querySelector('#loanAmount').value);
-console.log(loanAmount, typeof(loanAmount));
-const  years = Number(document.querySelector('#years').value);
-console.log(years, typeof(years));
-const interest = Number(document.querySelector('#interest').value);
-console.log(interest, typeof(interest));
-let payment = 0; 
+const selector = function (selector) {
+    document.querySelector('#selector').value
+};
 
 const calculateDebtLeft = function (loanAmount, years, interest, payment) 
  {for (let i = 1; i < years+1; i++)
@@ -54,10 +50,7 @@ let totalInterestPaid = 0;
     totalInterestPaid = payment * years - loanAmount} 
     return totalInterestPaid};
 
-
-
-document.querySelector('#calculate').addEventListener('click',
-function() {
+const getInfo = function() {
 let loanAmount = Number(document.querySelector('#loanAmount').value);
 let  years = Number(document.querySelector('#years').value);
 let interest = 1 + (Number(document.querySelector('#interest').value)/100);
@@ -78,7 +71,14 @@ document.querySelector('#totalInterest').value = totalInterest;
 
 const totalDebt = amountLeft(loanAmount, years, interest, payment);
 console.log(totalDebt);
-});
+}
+
+document.querySelector('#calculate').addEventListener('click', getInfo);
+
+
+
+
+
 
 
 
