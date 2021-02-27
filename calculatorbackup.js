@@ -46,24 +46,25 @@ document.querySelector('#calculate').addEventListener('click', function(){
 );
 
 document.addEventListener('keydown', function(event){
-    console.log(event);
-    // mortgageCalculator.initiate();
-    // mortgageCalculator.yearlyPayment();
+   if (event.key === 'Enter') {
+    mortgageCalculator.initiate();
+    mortgageCalculator.yearlyPayment();
 
-    // const myYearlyPayment = mortgageCalculator.payment;
-    // console.log(myYearlyPayment);
-    // document.querySelector('#yearlyPayment').value = myYearlyPayment;
+    const myYearlyPayment = mortgageCalculator.payment;
+    console.log(myYearlyPayment);
+    document.querySelector('#yearlyPayment').value = myYearlyPayment;
     
-    // const totalInterest = mortgageCalculator.totalInterestPaid;
-    // document.querySelector('#totalInterest').value = totalInterest;
-    // console.log(mortgageCalculator.totalInterestPaid);
+    const totalInterest = mortgageCalculator.totalInterestPaid;
+    document.querySelector('#totalInterest').value = totalInterest;
+    console.log(mortgageCalculator.totalInterestPaid);
 
-    // const monthlyPayment = mortgageCalculator.monthlyPayment;
-    // document.querySelector('#monthlyPayment').value = monthlyPayment;
-    // console.log(mortgageCalculator.monthlyPayment);
+    const monthlyPayment = mortgageCalculator.monthlyPayment;
+    document.querySelector('#monthlyPayment').value = monthlyPayment;
+    console.log(mortgageCalculator.monthlyPayment);
 
-    // console.log(mortgageCalculator.leftDebt);
-    // console.log(mortgageCalculator);
+    console.log(mortgageCalculator.leftDebt);
+    console.log(mortgageCalculator);
+console.log(event)}
 }
 );
 
