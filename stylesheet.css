@@ -8,3 +8,7 @@ div.outputs{
 }
 
 body {border: 1px red solid;}
+
+.hidden {
+	display: none;
+}

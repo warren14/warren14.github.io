@@ -1,10 +1,17 @@
 const mortgageCalculator = {
 
+    inputLoanAmount: document.querySelector('#loanAmount'),
+    inputInterest: document.querySelector('#interest'),
+    inputYears: document.querySelector('#years'),
+    outputMonthlyPayment:document.querySelector('#monthlyPayment'),
+    outputYearlPayment: document.querySelector('#yearlyPayment'),
+    outputInterestPaid:document.querySelector('#totalInterest'),
+
     initiate: function () {
-    this.loanAmount = Number(document.querySelector('#loanAmount').value);
-    this.interest = (Number(document.querySelector('#interest').value)/100) + 1;
+    this.loanAmount = Number(this.inputLoanAmount.value);
+    this.interest = (Number(this.inputInterest.value / 100) + 1);
     this.payment = 0;
-    this.years = Number(document.querySelector('#years').value)},
+    this.years = Number(this.inputYears.value)},
 
  calculateDebtLeft: function () 
  {let debt = this.loanAmount; for (let i = 1; i < this.years+1; i++)
@@ -20,50 +27,53 @@ yearlyPayment : function ()
     this.leftDebt = this.calculateDebtLeft();
     this.totalInterestPaid = this.payment * this.years - this.loanAmount;
     this.monthlyPayment = this.payment / 12;
-}}
+
+
+}},
+runCalculator: function () {
+    this.initiate();
+    if (this.loanAmount <= 0 || this.interest === 1 || this.years <= 0)
+    {document.querySelector('.warning').classList.remove('hidden')}
+
+else{
+    this.yearlyPayment();
+    const myYearlyPayment = this.payment;
+    this.outputYearlPayment.value = myYearlyPayment;
+
+    const totalInterest = this.totalInterestPaid;
+    this.outputInterestPaid.value = totalInterest;
+
+    const monthlyPayment = this.monthlyPayment;
+    this.outputMonthlyPayment.value = monthlyPayment;
+
+    console.log(mortgageCalculator);
+    console.log(this.leftDebt);
+    console.log(this.monthlyPayment);
+    console.log(this.payment);
+    console.log(this.totalInterestPaid);
+    document.querySelector('.outputs').classList.remove('hidden');
+    //Need to add hidden to the Warning
+
+
+}},
+//Set cookie
+    
+calculatorCookie : function () {
+    let loanValue = document.querySelector('#loanAmount').value;
+    document.cookie = 'loanAmount='+loanValue;
+}
 };
 
+mortgageCalculator.calculatorCookie();
 
 document.querySelector('#calculate').addEventListener('click', function(){
-    mortgageCalculator.initiate();
-    mortgageCalculator.yearlyPayment();
-
-    const myYearlyPayment = mortgageCalculator.payment;
-    console.log(myYearlyPayment);
-    document.querySelector('#yearlyPayment').value = myYearlyPayment;
-    
-    const totalInterest = mortgageCalculator.totalInterestPaid;
-    document.querySelector('#totalInterest').value = totalInterest;
-    console.log(mortgageCalculator.totalInterestPaid);
-
-    const monthlyPayment = mortgageCalculator.monthlyPayment;
-    document.querySelector('#monthlyPayment').value = monthlyPayment;
-    console.log(mortgageCalculator.monthlyPayment);
-
-    console.log(mortgageCalculator.leftDebt);
-    console.log(mortgageCalculator);
+   mortgageCalculator.runCalculator();
 }
 );
 
 document.addEventListener('keydown', function(event){
    if (event.key === 'Enter') {
-    mortgageCalculator.initiate();
-    mortgageCalculator.yearlyPayment();
-
-    const myYearlyPayment = mortgageCalculator.payment;
-    console.log(myYearlyPayment);
-    document.querySelector('#yearlyPayment').value = myYearlyPayment;
-    
-    const totalInterest = mortgageCalculator.totalInterestPaid;
-    document.querySelector('#totalInterest').value = totalInterest;
-    console.log(mortgageCalculator.totalInterestPaid);
-
-    const monthlyPayment = mortgageCalculator.monthlyPayment;
-    document.querySelector('#monthlyPayment').value = monthlyPayment;
-    console.log(mortgageCalculator.monthlyPayment);
-
-    console.log(mortgageCalculator.leftDebt);
-    console.log(mortgageCalculator);
+mortgageCalculator.runCalculator();
 console.log(event)}
 }
 );
