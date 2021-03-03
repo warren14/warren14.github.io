@@ -62,10 +62,11 @@ calculatorCookie : function () {
     document.cookie = 'loanAmount='+loanValue;
 },
 
-onLoad: function ()  {console.log('load'); if (document.cookie.length!=0) {
+onLoad: function () {console.log('load'); if (document.cookie.length!=0) {
     let cookieArray = document.cookie.split('=');
-    this.inputLoanAmount.value = cookieArray[1]}
+    console.log(cookieArray)}
 },
+
 };
 
 window.onload = mortgageCalculator.onLoad;
