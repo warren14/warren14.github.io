@@ -62,6 +62,11 @@ calculatorCookie : function () {
     let loanValue = this.inputLoanAmount.value;
     document.cookie = 'loanAmount='+loanValue;
 }
+
+onLoad: function ()  {if (document.cookie.length!=0) {
+    let cookieArray = document.cookie.split('=');
+    this.inputLoanAmount.value = cookieArray[1]}
+},
 };
 
 document.querySelector('#calculate').addEventListener('click', function(){
