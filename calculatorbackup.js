@@ -57,17 +57,18 @@ else{
 
 }},
 //Set cookie
-    
 calculatorCookie : function () {
     let loanValue = this.inputLoanAmount.value;
     document.cookie = 'loanAmount='+loanValue;
-}
+},
 
-onLoad: function ()  {if (document.cookie.length!=0) {
+onLoad: function ()  {console.log('load'); if (document.cookie.length!=0) {
     let cookieArray = document.cookie.split('=');
     this.inputLoanAmount.value = cookieArray[1]}
 },
 };
+
+window.onload = mortgageCalculator.onLoad;
 
 document.querySelector('#calculate').addEventListener('click', function(){
    mortgageCalculator.runCalculator();
