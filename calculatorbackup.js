@@ -58,10 +58,9 @@ else{
 }},
 //Set cookie
     
-calculatorCookie : function () {if (document.cookie === '')
-    {let loanValue = this.inputLoanAmount.value;
-    document.cookie = 'loanAmount='+loanValue;}
-
+calculatorCookie : function () {
+    let loanValue = this.inputLoanAmount.value;
+    document.cookie = 'loanAmount='+loanValue;
 }
 };
 
