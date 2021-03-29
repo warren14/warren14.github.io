@@ -62,9 +62,9 @@ calculatorCookie : function () {
     document.cookie = 'loanAmount='+loanValue;
 },
 
-onLoad: function () {console.log('load'); if (document.cookie.length!=0) {
-    let cookieArray = document.cookie.split('=');
-    console.log(cookieArray)}
+onLoad: function () {let cookieArray = []; let if (document.cookie.length!=0) {
+    cookieArray = document.cookie.split('=');
+    inputLoanAmount.value = cookieArray[1];}
 },
 
 };
