@@ -65,7 +65,7 @@ calculatorCookie : function () {
 onLoad: function () {let cookieArray = []; if (document.cookie.length!=0) {
     cookieArray = document.cookie.split('=');
     document.querySelector('#loanAmount').value = cookieArray[1]}
-};
+}};
 
 window.onload = mortgageCalculator.onLoad;
 
