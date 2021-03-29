@@ -1,12 +1,14 @@
 div .inputs {
-	width: 25;
-border: 1px green solid;}
-
-div.outputs{
-	border: 1px black solid;
+	
 }
 
-body {border: 1px red solid;}
+div.outputs{
+	
+}
+
+body {
+
+}
 
 .hidden {
 	display: none;
