@@ -70,7 +70,8 @@ calculatorCookie : function () {
     document.cookie = 'loanAmount='+loanValue;
         }};
 
-window.onload = mortgageCalculator.onLoad;
+window.addEventListener('load', function ()
+    {mortgageCalculator.onLoad()});
 
 document.querySelector('#calculate').addEventListener('click', function(){
    mortgageCalculator.runCalculator();
