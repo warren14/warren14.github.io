@@ -7,11 +7,19 @@ const mortgageCalculator = {
     outputYearlPayment: document.querySelector('#yearlyPayment'),
     outputInterestPaid:document.querySelector('#totalInterest'),
 
+
     initiate: function () {
     this.loanAmount = Number(this.inputLoanAmount.value);
     this.interest = (Number(this.inputInterest.value / 100) + 1);
     this.payment = 0;
     this.years = Number(this.inputYears.value)},
+
+onLoad: function () {console.log(this); 
+let cookieArray = []; if (document.cookie.length!=0) {
+    cookieArray = document.cookie.split('=');
+    console.log(this);
+    this.inputLoanAmount.value = cookieArray[1];}
+},
 
  calculateDebtLeft: function () 
  {let debt = this.loanAmount; for (let i = 1; i < this.years+1; i++)
@@ -60,14 +68,7 @@ else{
 calculatorCookie : function () {
     let loanValue = this.inputLoanAmount.value;
     document.cookie = 'loanAmount='+loanValue;
-},
-
-onLoad: function () {console.log(this);
-    let cookieArray = []; if (document.cookie.length!=0) {
-    cookieArray = document.cookie.split('=');
-    console.log(this);
-    this.inputLoanAmount.value = cookieArray[1];}
-}};
+        }};
 
 window.onload = mortgageCalculator.onLoad;
 
