@@ -14,12 +14,20 @@ const mortgageCalculator = {
     this.payment = 0;
     this.years = Number(this.inputYears.value)},
 
-onLoad: function () {console.log(this); 
-let cookieArray = []; if (document.cookie.length!=0) {
-    cookieArray = document.cookie.split('=');
-    console.log(this);
-    this.inputLoanAmount.value = cookieArray[1];}
-},
+// onLoad: function () {console.log(this); 
+// let cookieArray = []; if (document.cookie.length!=0) {
+//     cookieArray = document.cookie.split('=');
+//     console.log(this);
+//     this.inputLoanAmount.value = cookieArray[1];}
+// },
+
+onLoad: function () {
+let dc = document.cookie.split(';');
+for (let str of dc) {if (str[0] === ' ') 
+{str = str.slice(1)}; 
+let [k, v] = str.split('='); if (k === 'loanAmount') 
+{this.inputLoanAmount.value = v}}},
+
 
  calculateDebtLeft: function () 
  {let debt = this.loanAmount; for (let i = 1; i < this.years+1; i++)
