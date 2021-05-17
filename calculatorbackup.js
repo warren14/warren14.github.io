@@ -25,7 +25,7 @@ onLoad: function () {
 let dc = document.cookie.split(';');
 for (let str of dc) {if (str[0] === ' ') 
 {str = str.slice(1)}; 
-let [k, v] = str.split('='); if (k === 'loanAmount') 
+let [k, v] = str.split('='); if (k.indexOf('loanAmount') === 0) 
 {this.inputLoanAmount.value = v}}},
 
 
